@@ -1,0 +1,141 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.Master.cs" Inherits="coffee.SiteMaster" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <title>Coffee Shop</title>
+    <link href="Content/style.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            width: 100%;
+            background: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+            font-size: 20px;
+            font-weight: bold;
+            color: #2c2c2c;
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 10px;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar ul li {
+            margin-left: 20px;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 4px;
+        }
+
+        .navbar ul li a.active,
+        .navbar ul li a:hover {
+            background: #000;
+            color: #fff;
+        }
+
+      
+        .c {
+/*            background: url('images/coffee-bg.jpg') no-repeat center center/cover;*/
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; 
+            text-align: center;
+            padding: 0 20px;
+            color: #fff;
+        }
+
+        .content {
+            padding: 100px 20px 40px; 
+        }
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            color: #444;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+       
+        <div class="navbar">
+            <div class="logo">
+                <asp:Image ID="LogoImage" runat="server" ImageUrl="~/images/coffee1.png" CssClass="logo-img" AlternateText="Coffee Shop" />
+                <span style="color: #5C4A4A; font-family: 'gill sans mt'">Coffee Shop</span>
+            </div>
+            <asp:Menu ID="NavigationMenu" runat="server" Orientation="Horizontal" RenderingMode="List">
+                <Items>
+                    <asp:MenuItem Text="Home" NavigateUrl="~/HOMEPAGE.aspx" />
+                    <asp:MenuItem Text="Product Details" NavigateUrl="~/ProductDetails.aspx" />
+                    <asp:MenuItem Text="AboutUs" NavigateUrl="~/AboutUs.aspx" />
+                    <asp:MenuItem Text="Blog" NavigateUrl="~/Blog.aspx" />
+                    <asp:MenuItem Text="Contact Us" NavigateUrl="~/ContactUs.aspx" />
+                </Items>
+                <StaticMenuItemStyle Font-Names="Gill Sans MT" />
+                
+            </asp:Menu>
+        </div>
+
+        <div class="c">
+            
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            
+            <asp:ImageMap ID="ImageMap1" runat="server"
+                ImageUrl="~/images/aa.png"
+                Width="900px" Height="400"
+                style="margin-top:20px;" >
+                <asp:RectangleHotSpot Bottom="231" Left="455" NavigateUrl="~/ADDPRODUCTS.aspx" Right="346" Top="256" />
+            </asp:ImageMap>
+        </div>
+
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" >
+            </asp:ContentPlaceHolder>
+         &nbsp;&nbsp;&nbsp;
+         &nbsp;&nbsp;&nbsp;
+        
+        <footer>&copy; 2025 Coffee Shop</footer>
+    </form>
+</body>
+</html>
